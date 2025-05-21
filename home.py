@@ -6,18 +6,12 @@ from llama_index.core.chat_engine import CondensePlusContextChatEngine
 from llama_index.core.retrievers import VectorIndexRetriever
 from llama_index.vector_stores.pinecone import PineconeVectorStore
 from llama_index.llms.openai import OpenAI
-import time
-
 from pinecone import Pinecone
+import time
 import os
 
-from dotenv import load_dotenv
-
-load_dotenv(override=True)
-
-
-# os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
-# os.environ["PINECONE_API_KEY"] = st.secrets["PINECONE_API_KEY"]
+os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+os.environ["PINECONE_API_KEY"] = st.secrets["PINECONE_API_KEY"]
 
 def gerador_resposta(texto):
     for palavra in texto.split(" "):
